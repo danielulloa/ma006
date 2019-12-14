@@ -240,3 +240,8 @@ TSWLatexianTemp*
 
 # generated if using elsarticle.cls
 *.spl
+
+/formulas/*
+/parte1/*
+/parte2/*
+/tps/*
