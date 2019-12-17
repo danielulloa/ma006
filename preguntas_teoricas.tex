@@ -50,12 +50,12 @@
 		Si se tiene una población de tamaño N es parámetro.\\
 		Si se tienen los datos agrupados en intervalos o por valores distintos de la variable sea esta discreta o continua, se calcula la media aritmetica ponderada.
 		\begin{equation}
-			\bar{X}=\frac{1}{\sum_{i=1}^{k}}\sum_{i=1}^{k}x_i f_i
+			\bar{X}=\frac{1}{\sum_{i=1}^{k}fi} \sum_{i=1}^{k}x_i f_i
 		\end{equation}
 		donde $\sum_{i=1}^{k}fi=n$ la media aritmética muestral
 		
 		\begin{equation}
-			\mu=\frac{1}{\sum_{i=1}^{k}}\sum_{i=1}^{k}x_i f_i
+			\mu=\frac{1}{\sum_{i=1}^{k}fi}\sum_{i=1}^{k}x_i f_i
 		\end{equation}
 		donde $\sum_{i=1}^{k}fi=N$ la media aritmética poblacional
 		\item \textsc{Mediana} Es el valor central de la distribución, el valor del carácter a ambos lados del cual se reparten por mitades las observaciones\\
@@ -101,13 +101,19 @@ Medidas que informa sobre la variación o variabilidad de los datos.
 	\sum_{i=1}^{n}(x_i-\bar{X})^2\leq \sum_{i=1}^{n}(x_i-A)^2
 \end{equation}\\
 \textsc{Propiedad 3} El promedio de un grupo de medias aritméticas, cada una de ellas ponderada por la cantidad de observaciones que le dió origen, coincide en el promedio de las observaciones individuales.\\
+
 \textsc{Propiedad 4} La media aritmética de una constante es la misma constante\\
+
 \textsc{Propiedad 5} La media aritmética de una variable más (o menos) una constante es igual a la media aritmética de la variable más (o menos) la constante.\\
+
 \textsc{Propiedad 6} La media aritmética de una variable por una constante es igual a la media aritmética de la variable multiplicada por la constante.\\
+
 \textsc{Propiedad 7} La media aritmética de una variable que es suma (o resta) de otra variable original es igual a la suma (o resta) de las medias aritméticas de las variables originales.\\
 \subsection{Propiedades de la varianza}
 \textsc{Propiedad 1} La varianza es una cantidad no negativa $Var\geq 0$ puesto que se trata de una sumatoria de numeros positivos porque estan elevados al cuadrado.\\
+
 \textsc{Propiedad 2} La varianza de una constante es 0. Todos lo valores de la variable serán iguales a 0, los desvíos serán nulos y en consecuencia la varianza será 0.\\
+
 \textsc{Propiedad 3} Si a una variable se le suma una constante la varianza no cambia
 \begin{equation}
 	Var(x+c)=Var(x)
@@ -192,14 +198,352 @@ Propiedades generales de $P(A)$
 \begin{enumerate}
 	\item $P(Ac)$ Probabilidad de evento complementario
 	\item $P(A\cup B)$ Probabilidad de que ocurran A o B
-	\item $P(A\hat B)$ Probabilidad de que ocurran A y B
+	\item $P(A\cap B)$ Probabilidad de que ocurran A y B
 	\item $P(A/B)$ Probabilidad de que ocurra A si ya ha ocurrido B
 \end{enumerate}
 
-\textbf{Evento complementario}
-Es el conjunto de todos los pun
 
-	\section{Preguntas}
+
+\textbf{Evento complementario}
+Es el conjunto de todos los puntos muestrales que no pertenecen al conjunto. Dado A, es $\bar{A}$ o $A_c$ el complemento de A.\\
+
+\textbf{Eventos mutuamente excluyentes}
+Son tales que la concurrencia de uno impide la ocurrencia del otro, en un mismo ensayo o experimento basico A y B son mutuamente excluyentes si $A\hat B \neq \emptyset$\\
+
+\textbf{Probabilidad Condicional} Dados dos suceso A y B, la probabilidad de que ocurra A habiendo ocurrido B ( o de que A esté condicional a la aparicion previa de B) se escribe $P(A/B)$\\
+
+\textbf{Eventos probabilisticamente independientes} Son aquellos en que la ocurrencia de uno no modifica la probabilidad de ocurrencia del otro en más de un ensayo o experimento básico. A y B son independientes si $P(A)=P(A/B)$ o $P(B)=P(B/A)$\\
+
+\textbf{Regla de la suma o de la adicion} Sean A y B dos eventos definidos en S
+\begin{equation}
+	P(A\cup B)=P(A)+P(B)-P(AB)
+\end{equation}
+Si A y B son mutuamente excluyentes
+\begin{equation}
+	P(A\cup B)=P(A)+P(B)-P(AB)
+\end{equation}
+Para 3 eventos:
+\begin{equation}
+	P(A\cup B\cup C)=P(A)+P(B)+P(C)-P(AB)-P(AC)-P(BC)+P(ABC)
+\end{equation}
+
+\textbf{Regla del producto} Sean A y B dos sucesos definidos en S
+\begin{equation}
+	P(A\cap B)=P(A)P(B/A)
+\end{equation}
+o bien
+\begin{equation}
+	P(A\cap B)=P(B)P(A/B)
+\end{equation}
+Si A y B son independientes
+\begin{equation}
+	P(A\cap B)=P(A)P(B)=P(B)P(A)
+\end{equation}
+\textbf{Regla de Bayes o de la probabilidad de las causas}
+\begin{equation}
+	P(B_1/A)=\frac{P(B_1\cap A)}{P(A)}=\frac{P(B_1)P(A/B_1)}{\sum P(B_1)P(A/B_1)}
+\end{equation}
+Supongamos que se tiene una clase exhaustiva de n sucesos $B_i=\{B_1,B_2,\dots,B_n\}$ que por eso mismo constituye una partición de S.
+Los conjuntos $B_i$ forman una particion si se da que:
+\begin{enumerate}
+	\item $B_i \cap B_j \neq \emptyset \forall i \neq j$
+	\item $\bigcup B_i = 1$
+	\item $P(B_i)>0 \forall i$
+\end{enumerate}
+La probabilidad del resultado final se obtiene como suma de las probabilidades de que el resultado de interes se de con cada una de las causas que lo original
+\begin{equation}
+	P(A)=\sum P(B_i)P(A/B_i)
+\end{equation}
+Si se quiere calcular la probabilidad de que habiendo obtenido A, este provenga de un $B_i$ determinado, por ejemplo $B_3$, se quiere calcular la probabilidad de que el evento A, que ha ocurrido, sea el efecto de la causa $B_3$. Dicho de otra manera, bajo la hipótesis de que el efecto A ha sido observado se quiere calcular la probabilidad de que está actuando la causa $B_3$ se tiene que:
+\begin{align}
+	P(B_3/A)&=\frac{P(B_3\cap A)}{P(A)}\\
+	P(B_3\cap A)&=P(B_3)P(A/B_3)\\
+	P(B_3/A)&= \frac{P(B_3)P(A/B_3)}{\sum P(B_i)P(A/B_i)}
+\end{align}
+\section{Distribuciones}
+\textbf{Distribución Probabilistica} Es una distribucion de probabilidades cada una de las cuales esta asociada con uno de los posibles valores diferentes de la variable aleatoria. Se cuenta con ella cuando se conocen todos los valores posibles de la variable aleatoria y las probabilidades asociadas con cada uno de estos valores posibles\\
+
+\textbf{Función de probabilidad discreta} Verifica que
+\begin{align}
+	p(x_i)\geq 0 \forall i = 1,2,\dots,n\\
+	\sum p(x_i)=1 	
+\end{align}
+Se define como
+\begin{equation}
+	P_x(x)= \left\{ \begin{array}{lcc}
+		P(x_i) &   \forall i = 1,2,\dots,n \\
+		\\ 0 &  otro\ caso \end{array}
+\right.
+\end{equation}
+
+\textbf{Función de probabilidad continua}
+Verifica que 
+\begin{align}
+	f(x)\geq 0 \ \ \forall i \in (-\infty,+\infty)\\
+	\int_{-\infty}^{\infty} f(x)dx=1 	
+\end{align}
+Si $A:\{\frac{x}{a}\leq x \leq b\} \hspace{10mm}P(A)\int_{a}^{b}f(x)dx$ $\forall a<b$\\
+
+Se define como
+\begin{equation}
+	f_x(x)= \left\{ \begin{array}{lcc}
+		f(x_i) &   \forall i = 1,2,\dots,n \\
+		\\ 0 &  otro\ caso \end{array}
+\right.
+\end{equation}
+
+Podemos definir la media aritmetica y la varianza de esa distribucionen terminos de probabilidadque son:
+\begin{align}
+	\mu&=\sum_{\forall x}\left[xp(x)\right]\\
+	\mu&=\int_{-\infty}^{\infty}xf(x)dx
+\end{align}
+Esperanza de x o valor esperado de x para variable aleatoria discreta y continua respectivamente.
+\begin{align}
+	\sigma^2&=E(x-\mu^2)p(x)\\
+	\sigma&=\int_{-\infty}^{\infty}(x-\mu)^2f(x)dx
+\end{align}
+Que denominamos Varianza de X para variable aleatoria discreta y continua respectivamente.\\
+
+Dada X, variable aleatoria discreta, si $y=H(x)=x^2$ será:
+\begin{equation}
+	E(Y)=E(X^2)=\sum \left[x^2p(x^2)\right]
+\end{equation}
+y tenemos la Varianza expresada en terminos de esperanza:
+\begin{equation}
+	Var(x)=\sigma^2=E\left[(X-E(X))^2\right]=E(X^2)-\left[E(X)\right]^2
+\end{equation}
+\textbf{Distribución Hipergeométrica}
+Es el numero de formas distintas en que pueden seleccionarse las n personas de la muestra, de un total de N personas. N tomados de a n
+\begin{equation}
+	{N\choose n}
+\end{equation}
+La probabilidad de un grupo cualquiera o de una muestra cualquiera es:
+\begin{equation}
+	\frac{1}{{N\choose n}}
+\end{equation}
+Probabilidad de que salga uno cualquiera sea la muestra.
+
+Ahora el numero de formas en que pueden seleccionarse $Z_0$ entre los k que prefieren seleccionarse en el resto de miembros de la muestra entre los que no prefieren:
+\begin{equation}
+	{k\choose Z_0}\ y \ {{N-k}\choose{n-Z_0}}
+\end{equation}
+
+Entonces la distribucion hipergeométrica es el numero de casos favorables sobre el numero de casos posibles
+\begin{equation}
+	\frac{{k\choose Z_0}\ y \ {{N-k}\choose{n-Z_0}}}{{N\choose n}}
+\end{equation}
+
+\textbf{Distribución Poisson}
+Cada una de las variables aleatorias representa el numero total de ocurrencias de un fenomeno en un continuo. Expresa la probabilidad de un numero k de ocurrencias acaecidas en un continuo fijo, si estos eventos ocurren con una frecuencia media conocida y son independientes del continuo discurrido desde la ultima ocurrencia o suceso.
+
+La distribucion de probabilidad de Poisson es una distribucion de probabilidades de una variable discreta que nos proporciona la probabilidad de que ocurra un determinado suceso un numero de veces k en un intervalo determinado de tiempo, espacio, volumen, etc.
+
+El parametro lamba es el numero medio de veces que ocurre el suceso en un intervalo continuo que puede ser: tiempo, espacio, volumen, etc. Su funcion de probabilidad es:
+\begin{equation}
+	p(x=k)=\frac{e^{-\lambda}\lambda^k}{k!} \hspace{10mm} x=0,1,\dots
+\end{equation}
+$p(xi)\geq 0$ se cumple ya que al ser $\lambda$ el promedio de acierto que ocurren en un intervalo continuo es $\lambda>0$ entonces $e^{-\lambda}>0$, $\lambda^x$ siempre es mayor que 0 y por propiedad de los numeros factoriales siempre $x!$ es mayor que 0.
+
+\section{Regresion y Correlacion}
+Estudio de dos o mas variables con diferentes objetivos. Es un analisis que requiere la consideracion de 2 o mas variables cuantitativas en forma simultanea.
+
+\textbf{Regresión simple} Interviene una sola variable independientes\\
+
+\textbf{Regresión múltiple} Intervienen dos o mas variables independientes\\
+
+\textbf{Regresión no lineal} La funcion que relaciona los parametros no es una combinacion lineal en los parametros\\
+
+El objetivo de la regresión es hallar una funcion o modelo matematico para predecir y estimar el valor de una variable a partir de valores de otros punto
+
+La variable Y es la dependiente(respuesta, predicha, endógena), es la variable que se desea predecir o estimar y.
+
+La variable X es la independiente(predictor, explicativa, exogena), es la variable que provee las bases para estimar.
+\subsubsection{Regresión lineal simple}
+\begin{align}
+	y&=\alpha+\beta x+e\\
+	\mu_{y/x}&=E(y/x)=\alpha+\beta x
+\end{align}
+
+La interpretacion de los coeficientes de regresion es:
+$\alpha$: es la ordenada al origen, indica el valor medio poblacional de la variable respuesta Y cuando x es cero. Si se tiene certeza de que la variable predictora x no puede asumir el valor 0, entonces la interpretacion no tiene sentido.\\
+
+$\beta$ es la pendiente de la linea de regresion, indica el cambio o modificacion del valor medio poblacional de la variable y cuando x se incrementa en una unidad.\\
+
+$e$ es un error aleatorio.
+
+\textbf{Estimacion de la linea de regresion usando minimos cuadrados}
+Se debe minimizar el error cuadratico:
+\begin{equation}
+	\sum_{i=1}^{n}e_i^2=\sum_{i=1}^n(Y_i-\alpha-\beta x_i)^2
+\end{equation}
+entonces para minimizar se deriva respecto de $\alpha$ y $\beta$
+\begin{align}
+	\frac{\partial{\sum e^2}}{\partial{\alpha}}=0\\
+	\frac{\partial{\sum e^2}}{\partial{\beta}}=0
+\end{align}
+
+Se obtiene un par de ecuaciones normales para el modelo, cuya solucion produce:
+ \begin{equation}
+	 b=\dfrac{\sum_{i=1}^n X_i Y_i - \dfrac{\sum_{i=1}^nX_i \sum_{i=1}^nY_i}{n}}{\sum_{i=1}^nX_i^2-\dfrac{\left(\sum Y_i\right)^2}{n}}
+ \end{equation}
+ Y el parametro $a=\bar{Y}-b\bar{X}$, entonces el modelo estimado es
+ \begin{equation}
+	 a=\bar{Y}-b\bar{X}
+ \end{equation}
+La pendiente b indica el cambio promedio estimado en la variable respuesta cuando la varaible predictora aumenta en una unidad adicional. La ordenada al origen a indica el valor promedio estimado de la variable respuesta cuando la variable predictora vale 0. Sin embargo carece de interpretación practica si es irrazonable considerar que el rango de valores de x incluye a cero.
+
+La variación de los $Y_i$ se mide convencionalmente en terminos de las desviaciones:
+\begin{equation}
+	\left(Y_i-\bar{Y_i}\right)
+\end{equation}
+La medida de la variacion total $SC_{tot}$ es la suma de las desviaciones al cuadrado $\sum\left(Y_i-\bar{Y_i}\right)^2$
+
+\begin{equation}
+	\left(Y_i-\bar{Y_i}\right)=\left(\hat{Y_i}-\hat{Y}\right)+\left(Y_i-\hat{Y_i}\right)
+\end{equation}
+
+Donde el miembro de la izquierda representa la desviacion total, el primer termino del otro lado de la igualdad es la desviacion del valor ajustado por la regresion con respecto a la media general y el ultimo es la desviacion de la observacion con respecto a la linea de regresion.\\
+
+Si consideramos todas las observaciones y elevamos al cuadrado
+\begin{equation}
+	\sum \left(Y_i-\bar{Y_i}\right)^2=\sum \left(\hat{Y_i}-\hat{Y}\right)^2+\sum \left(Y_i-\hat{Y_i}\right)^2
+\end{equation}
+
+Ahora el miembro de la izquierda es $SC_{tot}$, la suma de cuadrados total, el segundo $SC_{reg}$, la suma de cuadrados de la regresion y $SC_{er}$ la suma de cuadrados del error.
+
+Cada uno de estos cuadrados medios tiene una distribucion Ji Cuadrado.
+
+\textbf{Estimacion de la variancia de los terminos del error $\sigma^2$}
+Dado que los $Y_i$ provienen de diferentes distribuciones de probabilidad con medias diferentes que dependen del nivel de x, la desviacion de una observacion $Y_i$ debe ser calculada con respecto a su propia media estimada $Y_i$. Por tanto, las desviaciones son las residuales:
+\begin{equation}
+	Y_i-\hat{Y_i}=e_i
+\end{equation}
+\begin{equation}
+	SC_e=\sum_{i=1}^n\left(Y_i-\hat{Y_i}\right)^2=\sum_{i=1}^n \left(Y_i-a-bX_i\right)^2=\sum_{i=1}^n e_i^2
+\end{equation}
+La suma de cuadrados del error tiene $n-2$ grados de libertad asociados con ella, ya que no se tuvieron que estimar dos parametros.
+\begin{equation}
+	CM_e=\frac{SC_e}{n-2}=\dfrac{\sum_{i=1}^n e_i^2}{n-2}
+\end{equation}
+Donde CM es el cuadrado medio del error o cuadrado medio residual. Es un estimador insesgado de $\sigma^2$\\
+
+\textbf{Error estandar de la estimacion $S_e$ o $S_{y/x}$}
+
+Mide la dispersión o alejamiento promedio de los puntos con respecto a la recta estimada:
+\begin{align}
+	S^2e&=\frac{1}{n-2}\sum\left(Y_i-\hat{Y_i}\right)^2\\
+	S^2e&=\frac{1}{n-2}\left(\sum\left(Y_i-\bar{Y_i}\right)^2-b\sum\left(X_i-\bar{X}\right)\left(Y_i-\bar{Y}\right)\right)
+\end{align}
+\\\textbf{Prueba de hipotesis para el coeficiente de regresion $\beta$}
+\begin{align}
+	H_0:\beta=0\\
+	H_1:\beta\neq 0
+\end{align}
+y la variable pivotal es
+\begin{equation}
+	y=\frac{b-\beta}{S_b}\approx t_{(n-2)}
+\end{equation}
+
+\section{ANOVA}
+
+El estadistico cuadrado medio dentro de grupos ($CM_{dentro}$) o intravarianza mide la dispersion promedio de las observaciones individuales respescto a la media de su grupo.
+
+Luego, si las unidades experimentales son asignadas aleatoriamente a los t grupos o si las muestras son muestras aleatorias de una poblacion homogenea, el cuadrado medio intragrupo sirve para estimar $\sigma^2$.\\
+
+Los cuadrados medios intragrupos permanecen siempre como un residuo representando la variabilidad inherente a las unidades experimentales. Aunque el investigador controle todas las fuentes de variabilidad en su experimento, siempre quedará cierta variabilidad (residuo) en las respuestas de unidad en unidad.\\
+
+El cuadrado medio de error proporciona una medida de la variacion con la que hay que contar cuando se desea calcular diferencias significativas entre grupos. El cuadrado medio entre grupos($CM_{entre}$) o intervarianza mide las desviaciones entre las medias de cada grupo. Es decir, describe la dispersion entre las medias de cada grupo con respecto a la media total. Si no existe efecto de tratamiento, el cuadrado medio entre grupos es un estimador de $\sigma^2$.\\
+
+Cuando el tratamiento modifica las medias de grupos el cuadrado medio entre grupos es un estimador de la varianza poblacional más la componente añadida por efecto del tratamiento.
+
+Si en el conjunto de datos observados encontramos que $CM_{entre}$ es muy superior al $CM_{dentro}$, existiran entonces sospechas fundadas como para creer que
+\begin{equation}
+	\frac{\left(\sum(\mu_i-\mu)^2\right)}{(t-1)}\neq 0
+\end{equation}
+
+Cuando ocurre esto, se debe admitir que no todas las medias poblacionales son iguales entre si.\\
+
+Buscar un criterio estadistico para comparar $CM_{entre}$ y $CM_{dentro}$ de manera tal que si el valor calculado para el cociente $\frac{CM_{entre}}{CM_{dentro}}$ excede un cierto limite, rechazamos la hipotesis de que son iguales y en caso contrario, la aceptamos.\\
+
+Tal vez mas importante del analisis de la varianza es que mediante estre procedimiento \textsc{Inferimos} la igualdad de medias a traves de la igualdad de varianzas. El test F, de igualdad de varianza, se transforma directamente en un test de igualdad de medias.\\
+
+Un diseño estadistico de experimentos es un proceso de planificacion del experimento mediante el cual se recolectan datos apropiados que al ser analizados por métodos estadisticos estos nos conducen a conclusiones metodologicas validas.
+
+\subsection{Propósitos de ANOVA}
+
+$\ddagger$ Proporconar métodos que permitan obtener la mayor cantidad de informacion en forma objetiva, confiable y el minimo costo.
+
+$\ddagger$ Controlar la variabilidad que está presente en todo experimento y que afecta a sus resultados.
+
+\subsection{Definiciones ANOVA}
+
+\textbf{Unidad experimental} Es la parte mas pequeña de material experimental a la que se le aplica el tratamiento y en donde se mide o registra la variable que se investiga.\\
+
+\textbf{Tratamiento} Conjunto de condiciones experimentales o procedimentales que se van a aplicar a una unidad experimental en un diseño elegido y cuyos efectos van a ser registrados(respuesta).\\
+
+\textbf{Observacion} Valor que asume la variable respuesta en una determinada realizacion.\\
+
+\textbf{Factor} variable controlada por el experimentador o variable independiente. Se estudia su efecto sobre la variable dependiente o respuesta.\\
+
+\textbf{Nivel del factor} Es cada una de las categorias, valores o formas especificas del factor.
+
+\subsection{Principios básicos del diseño experimental}
+
+\textbf{Repeticion} Es la reproduccion o replica del experimento basico. Son observaciones de un mismo tratamiento en diferentes unidades experimentales. Las principales razones por las cuales es deseable la repeticion:
+\begin{enumerate}
+	\item Permite estimar el error experimental
+	\item Aumenta el alcance de la inferencia del experimento por seleccion y uso apropiado de las unidades experimentales
+\end{enumerate}
+
+\textbf{Aleatorizacion} Consiste en la asignacion al azar de los tratamientos a las unidades experimentales con el propósito de asegurar que un determinado tratamiento no presente sesgo.\\
+
+La aleatorizacion hace validos los procesos de inferencia estadistica y los supuestos asegurando conclusiones confiables. Los errores están distribuidos independientemente.
+
+\textbf{Control Local} Consiste en tomar medidas (acciones del experimentador) para hacer el diseño experimental mas eficiente de tal manera que pueda permitir la reduccion del error experimental y asi hacerla mas sensible a cualquier prueba de significacion. el error experimental puede reflejar variacion del material experimental, errores de medicion u observaciones, errores de experimentacion.
+Para reducir el error experimental:
+\begin{itemize}
+	\item El uso de un diseño experimental  apropiado
+	\item La seleccion minuciosa del material a usar (lo mas homogenoe posible)
+	\item El incremento del numero de repeticiones en el experimento
+	\item El perfeccionamiento de la tecnica experimental y el mayor cuidado al dirigir el experimento
+	\item La utilizacion de la informacion proporcionada por variables relacionadas a la variable en Estudio
+\end{itemize}
+
+\subsection{Diseño Completamente Aleatorizado}
+En este experimento los tratamientos en estudio se distribuyen al azar en forma irrestricta sobre todas las unidades experimentales siendo el numero de repeticiones por tratamiento igual o diferente.\\
+Este diseño se emplea cuando la variabilidad en todo el material experimental es relativamente pequeño y uniformemente distribuido.
+
+\textbf{Ventajas} Facil de planear y analizar. Flexible en el empleo del número de tratamientos y repeticiones. Permite tener dentro del analisis de varianza el maximo numero de grados de libertad para las sumas de cuadrados del error.
+
+\textbf{Desventajas} La necesidad de homogeneidad del material experimental es dificil de encontrar en experimentos de campo, por lo que su uso se restringe a experimentos de laboratorio.
+
+\subsection{Modelo I}
+\begin{equation}
+	Y_{ij}=\mu_i+\epsilon_{ij} \hspace{10mm} i=1,\dots,t \ \ j=1,\dots,r
+\end{equation}
+Donde:\\
+$Y_{ij}$ Es el valor observado de la j-ésima observacion del i-ésimo tratamiento.\\
+$\mu_i$ Es el valor medio poblacional del i-ésimo tratamiento\\
+$\epsilon_{ij}$ Es el error aleatorio de la j-ésima observacion correspondiente al i-ésimo tratamiento\\
+
+O si en el modelo anterior denotamos a $\mu_i=\mu+\tau_i$ se obtiene la siguiente forma alternativa del modelo:
+\begin{equation}
+	Y_{ij}=\mu+\tau_i+\epsilon_{ij} hspace{10mm} i=1,\dots,t \ \ j=1,\dots,r
+\end{equation}
+Donde:\\
+$Y_{ij}$ Es el valor observado de la j-ésima observacion del i-ésimo tratamiento.\\
+$\mu$ Es el valor medio poblacional general\\
+$\tau$ Es el efecto medio poblacional del i-ésimo tratamiento\\
+$\epsilon_{ij}$ Es el error aleatorio de la j-ésima observacion correspondiente al i-ésimo tratamiento\\
+
+\subsection{Supuestos para el modelo}
+\begin{enumerate}
+	\item Para cada tratamiento la variable aleatoria respuesta $Y_{ij}$ se distribuye normalmente. Para cada $T_i$ $Y_{ij}:N(\mu_i,\sigma_i^2)$
+	\item Las $Y_{ij}$ son variables aleatorias independientes entre si. $Cov(Y_{ij},Y_{kl})=0 \ \ \forall i \neq k; \forall j \neq l$
+	\item Las varianzas de los t tratamientos son iguales (homocedasticidad) $\sigma_1^2=\sigma_2^2=\dots=\sigma_i^2=\sigma^2$
+\end{enumerate}
+
+\section{Preguntas}
 $\dagger$	Diga cual de las siguientes expresiones es falsa cuando nos referimos al ANOVA:
 	\begin{itemize}
 		\item a) Los tratamientos son una fuente de variación.
